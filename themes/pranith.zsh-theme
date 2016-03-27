@@ -15,7 +15,7 @@ function get_pwd(){
   echo $prompt_short_dir
 }
 
-PROMPT='%n@%m:%{$fg[white]%}$(get_pwd):$(git_prompt_info)%{$reset_color%}%{$reset_color%}$ret_status'
+PROMPT='%n@%m:%{$fg[white]%}$(get_pwd) $(git_prompt_info)%{$reset_color%}%{$reset_color%}$ret_status'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
