@@ -49,7 +49,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git emacs)
+plugins=(git emacs env)
 
 # User configuration
 
@@ -82,3 +82,36 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+export CCACHE_DIR="/home/pranith/devops/.ccache/"
+export CC="ccache gcc"
+export CXX="ccache g++"
+export PATH="/usr/lib/ccache:$PATH"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/devops/code/qsim/lib
+export QSIM_PREFIX="/home/pranith/devops/code/qsim"
+
+export ALTERNATE_EDITOR=''
+export EDITOR='emacsclient -t'
+
+# Invoke GnuPG-Agent the first time we login.
+# Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting
+# signals?
+if test -f $HOME/.gpg-agent-info && \
+    kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
+    GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info | cut -c 16-`
+else
+    # No, gpg-agent not available; start gpg-agent
+    eval `gpg-agent --daemon --no-grab --write-env-file $HOME/.gpg-agent-info`
+fi
+
+export GPG_TTY=`tty`
+export GPG_AGENT_INFO
+
+export SST_HOME=/home/pranith/devops/code/sst/sst_home/
+export DRAMSIM2_HOME=/home/pranith/devops/code/DRAMSim2
+export PATH=$PATH:$SST_HOME/bin
+
+export GPG_TTY=$(tty)
+if [[ -n "$SSH_CONNECTION" ]] ;then
+    export PINENTRY_USER_DATA="USE_CURSES=1"
+fi
