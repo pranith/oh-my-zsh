@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 export CCACHE_DIR="/home/pranith/devops/.ccache/"
 export CC="ccache gcc"
 export CXX="ccache g++"
-export PATH="/usr/lib/ccache:$PATH"
+export PATH="/usr/lib/ccache:/home/pranith/bin/bin:$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/devops/code/qsim/lib
 export QSIM_PREFIX="/home/pranith/devops/code/qsim"
 
