@@ -8,3 +8,5 @@
 # brainstormr=~/Projects/development/planetargon/brainstormr
 # cd $brainstormr
 #
+unsetopt correct_all
+unsetopt correct
