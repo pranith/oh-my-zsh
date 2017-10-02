@@ -109,7 +109,7 @@ export GPG_AGENT_INFO
 
 export SST_HOME=/home/pranith/devops/code/sst/sst_home/
 export DRAMSIM2_HOME=/home/pranith/devops/code/DRAMSim2
-export PATH=$PATH:$SST_HOME/bin
+export PATH=$PATH:/home/pranith/local/bin:$SST_HOME/bin
 
 export GPG_TTY=$(tty)
 if [[ -n "$SSH_CONNECTION" ]] ;then
